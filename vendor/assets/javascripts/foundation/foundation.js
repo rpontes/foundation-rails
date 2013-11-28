@@ -35,9 +35,11 @@
 
 
   // Enable FastClick
-  if(typeof FastClick !== 'undefined') {
-    FastClick.attach(document.body);
-  }
+  $(function() {
+    if(typeof FastClick !== 'undefined') {
+      FastClick.attach(document.body);
+    }
+  });
 
   // private Fast Selector wrapper,
   // returns jQuery object. Only use where
@@ -117,7 +119,7 @@
   for(; lastTime < vendors.length && !requestAnimationFrame; lastTime++) {
     requestAnimationFrame = window[ vendors[lastTime] + "RequestAnimationFrame" ];
     cancelAnimationFrame = cancelAnimationFrame ||
-      window[ vendors[lastTime] + "CancelAnimationFrame" ] || 
+      window[ vendors[lastTime] + "CancelAnimationFrame" ] ||
       window[ vendors[lastTime] + "CancelRequestAnimationFrame" ];
   }
 
@@ -157,7 +159,7 @@
     window.cancelAnimationFrame = function(id) {
       clearTimeout(id);
     };
-      
+
   }
 
   }( jQuery ));
@@ -339,7 +341,7 @@
         } else {
           var query = Foundation.media_queries[media];
           if(query !== undefined) {
-            Foundation.stylesheet.insertRule('@media ' + 
+            Foundation.stylesheet.insertRule('@media ' +
               Foundation.media_queries[media] + '{ ' + rule + ' }');
           }
         }
